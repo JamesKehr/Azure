@@ -51,8 +51,7 @@ The Subnet ID string, within SubnetID, that must be used to generate the address
 Generates a new Subnet ID and adds it to 
 
 
-
-To generate an Azure IPv6 subnet:
+## Usage
 
 ```PowerShell
 # create the base /48 with a randomly generated Global ID and Subnet ID
