@@ -25,7 +25,7 @@ This it the 40-bit pseudo-random Global ID. There MUST BE only a single GlobalID
 
 ### [string[]]SubnetID
 
-A string array of 16-bit pseudo-random Subnet IDs.
+A string array of 16-bit pseudo-random Subnet IDs. The theoretical limit of this is 2^16, or 65536 subnets per Global ID.
 
 ## Methods
 
