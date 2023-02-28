@@ -64,11 +64,11 @@ $ipv6.GlobalID
 $ipv6.SubnetID
 
 # output the Azure vnet subnet string
-# which is the fd:<Global ID>::\48 string used as the Azure Virtual Network IPv6 address space
+# which is the fd:<Global ID>::/48 string used as the Azure Virtual Network IPv6 address space
 $ipv6.GetAzVnet()
 
 # output the default, auto-generated, subnet strung
-# used by a subnet within the vnet, using the format: fd:<Global ID>:<Subnet ID>::\64
+# used by a subnet within the vnet, using the format: fd:<Global ID>:<Subnet ID>::/64
 # the int is based on programming array standard, so the first position is 0, not 1.
 $ipv6.GetAzSubnet(0)
 
