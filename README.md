@@ -84,3 +84,9 @@ $ipv6.SubnetID
 # output the subnet address for the newly generated Subnet ID
 $ipv6.GetAzSubnet(1)
 ```
+
+## To-do
+- Use .NET Security.Cryptography.RNGCryptoServiceProvider to generate the Global ID and Subnet ID's.
+- Validate that a new Subnet ID is unique within the array. There is currently a smallish chance that there will be duplication after a significant number of Subnet ID's have been generated.
+- Make $Prefix a static property. The RFC currently does not define the L-bit being 0, so it should be used.
+- Create a hidden method that generates the subnet address string. Currently there is duplication for the int and string methods.
