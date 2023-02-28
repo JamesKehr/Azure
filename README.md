@@ -89,4 +89,6 @@ $ipv6.GetAzSubnet(1)
 - Use .NET Security.Cryptography.RNGCryptoServiceProvider to generate the Global ID and Subnet ID's.
 - Validate that a new Subnet ID is unique within the array. There is currently a smallish chance that there will be duplication after a significant number of Subnet ID's have been generated.
 - Make $Prefix a static property. The RFC currently does not define the L-bit being 0, so it should be used.
-- Create a hidden method that generates the subnet address string. Currently there is duplication for the int and string methods.
+- Switch SubnetID to a .NET generic list. This will give me IndexOf([string]) to quickly find the index of a SubnetID, which can be used in GetAzSubnet(int) to reduce duplication of effort.
+
+https://learn.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everything-about-arrays?view=powershell-7.3#generic-list
