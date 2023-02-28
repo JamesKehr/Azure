@@ -4,6 +4,54 @@ A collection of scripts I use for Azure related things.
 
 # IPv6
 
+File: Get-AzPrivateIPv6Subnet.ps1
+
+This script generates an Azure compatible Local Unicast IPv6 address space based on RFC 4193. The script uses "fd" as the base IPv6 prefix, followed by a single 40-bit pseudo-random Global ID, and initially creates a single pseudo-random 16-bit Subnet ID.
+
+      | 7 bits |1|  40 bits   |  16 bits  |          64 bits           |
+      +--------+-+------------+-----------+----------------------------+
+      | Prefix |L| Global ID  | Subnet ID |        Interface ID        |
+      +--------+-+------------+-----------+----------------------------+
+
+## Properties
+
+### [string]Prefix
+
+This value MUST BE "fd", per RFC 4193, until a future RFC defines the 0 value for the L bit.
+
+### [string]GlobalID
+
+This it the 40-bit pseudo-random Global ID. There MUST BE only a single GlobalID per instance.
+
+### [string[]]SubnetID
+
+A string array of 16-bit pseudo-random Subnet IDs.
+
+## Methods
+
+### GetAzVnet()
+
+Outputs the /48 subnet string. This can be used as the Azure virtual network (vnet) address space.
+
+### GetAzSubnet([int|string])
+
+Outputs the /64 subnet string. This can be used as the address space for a single subnet within the vnet with the matching Global ID (see GetAzVnet()).
+
+#### int
+
+This is the array position, within SubnetID, that must be used to generate the address space string.
+
+
+#### string
+
+The Subnet ID string, within SubnetID, that must be used to generate the address space string. The string must be in SubnetID.
+
+### AddAzSubnet()
+
+Generates a new Subnet ID and adds it to 
+
+
+
 To generate an Azure IPv6 subnet:
 
 ```PowerShell
