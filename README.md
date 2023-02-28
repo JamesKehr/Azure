@@ -92,3 +92,5 @@ $ipv6.GetAzSubnet(1)
 - Switch SubnetID to a .NET generic list. This will give me IndexOf([string]) to quickly find the index of a SubnetID, which can be used in GetAzSubnet(int) to reduce duplication of effort.
 
 https://learn.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everything-about-arrays?view=powershell-7.3#generic-list
+
+- The move to Generic lists will require all SubnetIDs be in lower case since IndexOf is case sensitive.
